@@ -1,0 +1,38 @@
+<form method="post" enctype="multipart/form-data" action="{% url 'upload_video_handler' %}">
+	{% csrf_token %}
+
+
+
+	{{ form }}
+
+
+
+	<li>
+		<label for="categories">Select Category:</label>
+		<select name="category" required>
+		{% for category in categories %}
+
+
+		<option name="{{ category }}">{{ category }}</option>
+
+		{%  endfor %}	
+
+		</select>
+
+	</li>
+
+	<div>
+		<textarea name="description" style="height : 100px;">Please write some description about your video.</textarea>
+	</div>
+
+	<br>
+
+	<button type="submit">Upload</button>
+
+	{% if success %}
+
+		<p style="color:green" >Upload Successful</p>
+
+	{% endif %}
+
+</form>

@@ -1,0 +1,162 @@
+{% include 'tube/common/header.html' %}
+<!-- navigation bar at the top of screen -->
+{% include 'tube/common/top-nav.html' %}
+
+
+<!-- left side navigation bar -->
+{% include 'tube/common/side-nav.html' %}
+
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+			<div class="main-grids">
+				<div class="top-grids">
+					<div class="recommended-info">
+						<h3>Recent Videos</h3>
+					</div>
+
+				{% for recent_video in recent_videos %}
+
+
+					<div class="col-md-4 resent-grid recommended-grid slider-top-grids">
+						<div class="resent-grid-img recommended-grid-img">
+							<a href="{% url 'play-video' recent_video.title %}"><img src="{{ MEDIA_URL }}thumbnails/{{ recent_video.title }}.jpg" alt="" /></a>
+							<div class="time">
+								<p>{{ recent_video.duration }}</p>
+							</div>
+							<div class="clck">
+								<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+							</div>
+						</div>
+						<div class="resent-grid-info recommended-grid-info">
+							<h3><a href="{{ STATIC_URL }}single.html" class="title title-info">{{ recent_video.title}}</a></h3>
+							<ul>
+								<li><p class="author author-info"><a href="{{ STATIC_URL }}#" class="author">Aman</a></p></li>
+								<li class="right-list"><p class="views views-info">{{ recent_video.views }} views</p></li>
+							</ul>
+						</div>
+					</div>
+
+
+					{% endfor %}
+					<div class="clearfix"> </div>
+				</div>
+				<div class="recommended">
+					<div class="recommended-grids">
+						<div class="recommended-info">
+							<h3>Animated Cartoon</h3>
+						</div>
+						<div  id="top" class="callbacks_container">
+							<ul class="rslides" id="slider3">
+								<li>
+									<div class="animated-grids">
+
+
+									{% for anime in animes %}
+										<div class="col-md-3 resent-grid recommended-grid slider-first">
+											<div class="resent-grid-img recommended-grid-img">
+
+												<a href="{% url 'play-video' anime.title %}">
+
+												
+												<img src="{{ MEDIA_URL }}thumbnails/{{ anime.title }}.jpg" alt="" />
+												</a>
+												<div class="time small-time slider-time">
+													<p> {{ anime.duration }} m</p>
+												</div>
+												<div class="clck small-clck">
+													<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+												</div>
+											</div>
+											<div class="resent-grid-info recommended-grid-info">
+												<h5>
+													<a href="{{ STATIC_URL }}single.html" class="title">
+														{{ anime.title }}
+													</a>
+												</h5>
+												<div class="slid-bottom-grids">
+													<div class="slid-bottom-grid">
+														<p class="author author-info"><a href="{{ STATIC_URL }}#" class="author">Aman</a></p>
+													</div>
+													<div class="slid-bottom-grid slid-bottom-right">
+														<p class="views views-info">{{ anime.views }} Views</p>
+													</div>
+													<div class="clearfix"> </div>
+												</div>
+											</div>
+										</div>
+
+									{% endfor %}
+
+										<div class="clearfix"> </div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="recommended">
+					<div class="recommended-grids">
+						<div class="recommended-info">
+							<h3>TV Series</h3>
+						</div>
+
+					{% for video in tv_series %}
+
+						<div class="col-md-3 resent-grid recommended-grid">
+							<div class="resent-grid-img recommended-grid-img">
+								<a href="{% url 'play-video' video.title %}"><img src="{{ MEDIA_URL }}thumbnails/{{ video.title }}.jpg" alt="" /></a>
+								<div class="time small-time">
+									<p>{{ video.duration }}</p>
+								</div>
+								<div class="clck small-clck">
+									<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+								</div>
+							</div>
+							<div class="resent-grid-info recommended-grid-info video-info-grid">
+								<h5><a href="{{ STATIC_URL }}single.html" class="title">{{ video.title }}</a></h5>
+								<ul>
+									<li><p class="author author-info"><a href="{{ STATIC_URL }}#" class="author">Aman</a></p></li>
+									<li class="right-list"><p class="views views-info">{{ video.views }} views</p></li>
+								</ul>
+							</div>
+						</div>
+
+							{% endfor %}
+
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+				<div class="recommended">
+					<div class="recommended-grids">
+						<div class="recommended-info">
+							<h3>Educational</h3>
+						</div>
+						
+					{% for video in educational %}
+
+						<div class="col-md-3 resent-grid recommended-grid">
+							<div class="resent-grid-img recommended-grid-img">
+								<a href="{% url 'play-video' video.title %}"><img src="{{ MEDIA_URL }}thumbnails/{{ video.title }}.jpg" alt="" /></a>
+								<div class="time small-time">
+									<p>{{ video.duration }}</p>
+								</div>
+								<div class="clck small-clck">
+									<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+								</div>
+							</div>
+							<div class="resent-grid-info recommended-grid-info video-info-grid">
+								<h5><a href="{{ STATIC_URL }}single.html" class="title">{{ video.title }}</a></h5>
+								<ul>
+									<li><p class="author author-info"><a href="{{ STATIC_URL }}#" class="author">Aman</a></p></li>
+									<li class="right-list"><p class="views views-info">{{ video.views }} views</p></li>
+								</ul>
+							</div>
+						</div>
+
+							{% endfor %}
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+			</div>
+
+{% include 'tube/common/footer.html' %}
