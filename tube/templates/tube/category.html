@@ -1,0 +1,45 @@
+{% include 'tube/common/header.html' %}
+<!-- navigation bar at the top of screen -->
+{% include 'tube/common/top-nav.html' %}
+
+
+<!-- left side navigation bar -->
+{% include 'tube/common/side-nav.html' %}
+
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+			<div class="main-grids">
+				<div class="recommended">
+					<div class="recommended-grids">
+						<div class="recommended-info">
+							<h3>{{ category.title }}<h3>
+						</div>
+						
+					{% for video in videos %}
+
+						<div class="col-md-3 resent-grid recommended-grid">
+							<div class="resent-grid-img recommended-grid-img">
+								<a href="{% url 'play-video' video.title %}"><img src="{{ MEDIA_URL }}thumbnails/{{ video.title }}.jpg" alt="" /></a>
+								<div class="time small-time">
+									<p>{{ video.duration }}</p>
+								</div>
+								<div class="clck small-clck">
+									<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+								</div>
+							</div>
+							<div class="resent-grid-info recommended-grid-info video-info-grid">
+								<h5><a href="{{ STATIC_URL }}single.html" class="title">{{ video.title }}</a></h5>
+								<ul>
+									<li><p class="author author-info"><a href="{{ STATIC_URL }}#" class="author">Aman</a></p></li>
+									<li class="right-list"><p class="views views-info">{{ video.views }} views</p></li>
+								</ul>
+							</div>
+						</div>
+						<div class="clearfix"> </div>
+
+					{% endfor %}
+					</div>
+				</div>
+			</div>
+
+{% include 'tube/common/footer.html' %}

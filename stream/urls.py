@@ -17,7 +17,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import url
 from django.contrib import admin
-from tube.views import home_view, login_view,search_view, logout_handler, register_view, about_view, video_play, categories_view, increase_like, upload_video, upload_view
+from tube.views import (home_view, category_view, login_view,search_view, logout_handler, 
+                        register_view, about_view, video_play, categories_view, increase_like, 
+                        upload_video, upload_view)
 import settings
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -32,6 +34,7 @@ urlpatterns = [
     url(r'^register/',register_view, name="signup"),
     url(r'^logout/', logout_handler, name="logout"),
     url(r'^search/', search_view, name="search"),
+    url(r'^category/(?P<category>.*)', category_view, name='category')
 
 
 

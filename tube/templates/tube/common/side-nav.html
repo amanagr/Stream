@@ -8,12 +8,12 @@
 			</div>
 				<div class="drop-navigation drop-navigation">
 				  <ul class="nav nav-sidebar">
-					<li class="active"><a href="{{ STATIC_URL }}index.html" class="home-icon"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
-					<li><a href="{{ STATIC_URL }}shows.html" class="user-icon"><span class="glyphicon glyphicon-home glyphicon-blackboard" aria-hidden="true"></span>Education</a></li>
-					<li><a href="{{ STATIC_URL }}history.html" class="sub-icon"><span class="glyphicon glyphicon-film" aria-hidden="true"></span>TV Series</a></li>
-					<li><a href="{{ STATIC_URL }}history.html" class="sub-icon"><span class="glyphicon glyphicon-film" aria-hidden="true"></span>Anime</a></li>
-					<li><a href="{{ STATIC_URL }}history.html" class="sub-icon"><span class="glyphicon glyphicon-film" aria-hidden="true"></span>Movies</a></li>
-					<li><a href="{{ STATIC_URL }}history.html" class="sub-icon"><span class="glyphicon glyphicon-film" aria-hidden="true"></span>Sports</a></li>				
+					<li class="active"><a href="{% url 'home' %}" class="home-icon"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+					<li><a href="{% url 'category' 'Education' %}" class="user-icon"><span class="glyphicon glyphicon-home glyphicon-blackboard" aria-hidden="true"></span>Education</a></li>
+					<li><a href="{% url 'category' 'TV Series' %}" class="sub-icon"><span class="glyphicon glyphicon-film" aria-hidden="true"></span>TV Series</a></li>
+					<li><a href="{% url 'category' 'Anime' %}" class="sub-icon"><span class="glyphicon glyphicon-film" aria-hidden="true"></span>Anime</a></li>
+					<li><a href="{% url 'category' 'Movies' %}" class="sub-icon"><span class="glyphicon glyphicon-film" aria-hidden="true"></span>Movies</a></li>
+					<li><a href="{% url 'category' 'Sports' %}" class="sub-icon"><span class="glyphicon glyphicon-film" aria-hidden="true"></span>Sports</a></li>				
 				  </ul>
 				  <!-- script-for-menu -->
 						<script>

@@ -263,7 +263,8 @@ def video_play(request, *args, **kwargs):				# page for playing individual video
 	'''
 
 	
-	video = Video.objects.get(title=kwargs['title'])
+	video       = Video.objects.get(title=kwargs['title'])
+	next_videos = Video.objects.filter(category = Category.objects.get(title= video.category))
 	video.views += 1
 	video.save()
 
@@ -278,6 +279,7 @@ def video_play(request, *args, **kwargs):				# page for playing individual video
 			 'video'	 : video,
 			'MEDIA_URL'  : MEDIA_URL,
 			'username'   : username,
+			'next_videos': next_videos,
 	}	
 
 
@@ -345,3 +347,24 @@ def search_view(request):
 
 
 	return render(request, 'tube/search.html', context)
+
+
+
+def category_view(request, **kwargs):
+	videos   = Video.objects.filter(category = Category.objects.get(title= kwargs['category']))
+
+	try:
+		username = request.session.get('username')
+	except:
+		username = None
+
+	context = {
+
+			'STATIC_URL' : STATIC_URL,
+			'MEDIA_URL'  : MEDIA_URL,
+			'username'   : username,
+			'category'   :  kwargs['category'],
+			'videos'     : videos,
+	}
+
+	return render(request, 'tube/category.html', context)
